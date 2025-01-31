@@ -1,5 +1,63 @@
- 
-<video autoplay controls className="vp" controlsList='nodownload' style="max-width:100%">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+      <script>
+
+            function findGetParameter(parameterName) {
+                  var result = null,
+                        tmp = [];
+                  location.search
+                        .substr(1)
+                        .split("&")
+                        .forEach(function (item) {
+                              tmp = item.split("=");
+                              if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                        });
+                  return result;
+            }
+
+            console.log(findGetParameter('nr'))
+
+            var names = ['',
+                  '1_Introduction_Bitcoin-Wallet-Development_005-2.mp4',
+                  '2_Course-Foundations_Bitcoin-Wallet-Development_005-2.mp4',
+                  '3_Setup-Environment_Bitcoin-Wallet-Development_005-2.mp4',
+                  '4_Installing-Packages_Bitcoin-Wallet-Development_005-2.mp4',
+                  '5_Adding-UI-Elements_Bitcoin-Wallet-Development_005-2.mp4',
+                  '6_Hashing-Password_Bitcoin-Wallet-Development_005-2.mp4',
+                  '7_Calling-API_Bitcoin-Wallet-Development_005-2.mp4',
+                  '8_Display-History_Bitcoin-Wallet-Development_005-2.mp4',
+                  '9_Styling-the -UI_Bitcoin-Wallet-Development_005-2.mp4',
+            ]
+            var ssrc = './assets/Course/005-2/video/' + names[Number(findGetParameter('nr'))]
+
+
+            vd = `<div>
+            <video autoplay controls className="vp" controlsList='nodownload' style="max-width:100%">
+      <source src="${ssrc}" />
+
+</video></div>
+            `
+
+            var z = document.createElement('div'); // is a node
+            z.innerHTML = vd;
+            document.body.appendChild(z)
+      </script>
+</body>
+
+</html>
+<!-- <video autoplay controls className="vp" controlsList='nodownload' style="max-width:100%">
       <source src="./assets/Course/005-2/video/4_Installing-Packages_Bitcoin-Wallet-Development_005-2.mp4" />
- 
-</video>
+
+</video> -->
